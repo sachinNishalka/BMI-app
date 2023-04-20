@@ -15,10 +15,8 @@ class _InputPageState extends State<InputPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,21 +47,18 @@ class _InputPageState extends State<InputPage> {
               height: 300.0,
               width: double.infinity,
               color: Color(0xFF1D1F33),
-
             ),
             SizedBox(
               height: 20.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
               children: [
                 Expanded(
                   child: Container(
                     height: 170.0,
                     width: 200.0,
                     color: Color(0xFF1D1F33),
-
                   ),
                 ),
                 SizedBox(
@@ -79,13 +74,6 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ],
-        ),
-      ),
-      floatingActionButton: Theme(
-        data: ThemeData(accentColor: Colors.deepPurpleAccent),
-        child: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {},
         ),
       ),
     );
