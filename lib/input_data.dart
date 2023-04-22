@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const double bottomContainerHeight = 80;
+
+const roundedCardColor = Color(0xFF1D1F33);
+const bottomCardColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -20,12 +25,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: roundedCard(
-                    colour: Color(0xFF1D1F33),
+                    colour: roundedCardColor,
                   ),
                 ),
                 Expanded(
                   child: roundedCard(
-                    colour: Color(0xFF1D1F33),
+                    colour: roundedCardColor,
                   ),
                 ),
               ],
@@ -33,7 +38,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: roundedCard(
-              colour: Color(0xFF1D1F33),
+              colour: roundedCardColor,
             ),
           ),
           Expanded(
@@ -41,17 +46,23 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: roundedCard(
-                    colour: Color(0xFF1D1F33),
+                    colour: roundedCardColor,
                   ),
                 ),
                 Expanded(
                   child: roundedCard(
-                    colour: Color(0xFF1D1F33),
+                    colour: roundedCardColor,
                   ),
                 ),
               ],
             ),
           ),
+          Container(
+            width: double.infinity,
+            color: bottomCardColor,
+            height: bottomContainerHeight,
+            margin: EdgeInsets.only(top: 10.0),
+          )
         ],
       ),
     );
@@ -59,9 +70,10 @@ class _InputPageState extends State<InputPage> {
 }
 
 class roundedCard extends StatelessWidget {
-  roundedCard({required this.colour});
+  roundedCard({required this.colour, required this.cardChild});
 
   final Color colour;
+  final Widget cardChild;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +83,7 @@ class roundedCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: colour,
       ),
+      child: cardChild,
     );
   }
 }
