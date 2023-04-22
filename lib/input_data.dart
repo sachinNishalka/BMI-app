@@ -12,63 +12,64 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF1D1F33),
-                    ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: roundedCard(
+                    colour: Color(0xFF1D1F33),
                   ),
-                  SizedBox(
-                    width: 10.0,
+                ),
+                Expanded(
+                  child: roundedCard(
+                    colour: Color(0xFF1D1F33),
                   ),
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF1D1F33),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: 20.0,
+          ),
+          Expanded(
+            child: roundedCard(
+              colour: Color(0xFF1D1F33),
             ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                color: Color(0xFF1D1F33),
-              ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF1D1F33),
-                    ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: roundedCard(
+                    colour: Color(0xFF1D1F33),
                   ),
-                  SizedBox(
-                    width: 10.0,
+                ),
+                Expanded(
+                  child: roundedCard(
+                    colour: Color(0xFF1D1F33),
                   ),
-                  Expanded(
-                    child: Container(
-                      color: Color(0xFF1D1F33),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class roundedCard extends StatelessWidget {
+  roundedCard({required this.colour});
+
+  final Color colour;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: colour,
       ),
     );
   }
