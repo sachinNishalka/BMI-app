@@ -37,7 +37,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: roundedCard(
                     colour: roundedCardColor,
-                    cardChild: Container(),
+                    cardChild: cardContent(
+                        cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
                   ),
                 ),
               ],
