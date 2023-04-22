@@ -5,8 +5,32 @@ import 'roundedCards.dart';
 
 const double bottomContainerHeight = 80;
 
-const roundedCardColor = Color(0xFF1D1F33);
+const activeCardColor = Color(0xFF1D1E33);
+
+const inactiveCardColor = Color(0xFF111328);
+
 const bottomCardColor = Color(0xFFEB1555);
+
+Color maleCardColor = inactiveCardColor;
+Color femaleCardColor = inactiveCardColor;
+
+void updateColor(int gender) {
+  if (gender == 1) {
+    if (maleCardColor == inactiveCardColor) {
+      maleCardColor = activeCardColor;
+      femaleCardColor = inactiveCardColor;
+    } else {
+      maleCardColor = inactiveCardColor;
+    }
+  } else if (gender == 2) {
+    if (femaleCardColor == inactiveCardColor) {
+      femaleCardColor = activeCardColor;
+      maleCardColor = inactiveCardColor;
+    } else {
+      femaleCardColor = inactiveCardColor;
+    }
+  }
+}
 
 class InputPage extends StatefulWidget {
   @override
@@ -27,19 +51,33 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: roundedCard(
-                    colour: roundedCardColor,
-                    cardChild: cardContent(
-                      cardIcon: FontAwesomeIcons.mars,
-                      cardText: "Male",
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(1);
+                      });
+                    },
+                    child: roundedCard(
+                      colour: maleCardColor,
+                      cardChild: cardContent(
+                        cardIcon: FontAwesomeIcons.mars,
+                        cardText: "Male",
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: roundedCard(
-                    colour: roundedCardColor,
-                    cardChild: cardContent(
-                        cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(2);
+                      });
+                    },
+                    child: roundedCard(
+                      colour: femaleCardColor,
+                      cardChild: cardContent(
+                          cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
+                    ),
                   ),
                 ),
               ],
@@ -47,7 +85,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: roundedCard(
-              colour: roundedCardColor,
+              colour: activeCardColor,
               cardChild: Container(),
             ),
           ),
@@ -56,13 +94,13 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: roundedCard(
-                    colour: roundedCardColor,
+                    colour: activeCardColor,
                     cardChild: Container(),
                   ),
                 ),
                 Expanded(
                   child: roundedCard(
-                    colour: roundedCardColor,
+                    colour: activeCardColor,
                     cardChild: Container(),
                   ),
                 ),
