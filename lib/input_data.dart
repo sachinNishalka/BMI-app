@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'cardContent.dart';
+import 'roundedCards.dart';
 
 const double bottomContainerHeight = 80;
 
 const roundedCardColor = Color(0xFF1D1F33);
 const bottomCardColor = Color(0xFFEB1555);
-const cardTextColor = Color(0xFF8D8E98);
 
 class InputPage extends StatefulWidget {
   @override
@@ -76,52 +77,6 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
-    );
-  }
-}
-
-class cardContent extends StatelessWidget {
-  cardContent({required this.cardIcon, required this.cardText});
-
-  final IconData cardIcon;
-  final String cardText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          cardIcon,
-          size: 80.0,
-        ),
-        SizedBox(
-          height: 18.0,
-        ),
-        Text(
-          "$cardText",
-          style: TextStyle(fontSize: 18.0, color: cardTextColor),
-        )
-      ],
-    );
-  }
-}
-
-class roundedCard extends StatelessWidget {
-  roundedCard({required this.colour, required this.cardChild});
-
-  final Color colour;
-  final Widget cardChild;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: colour,
-      ),
-      child: cardChild,
     );
   }
 }
