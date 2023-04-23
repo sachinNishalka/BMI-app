@@ -11,18 +11,20 @@ const inactiveCardColor = Color(0xFF111328);
 
 const bottomCardColor = Color(0xFFEB1555);
 
+enum GenderType { male, female, other }
+
 Color maleCardColor = inactiveCardColor;
 Color femaleCardColor = inactiveCardColor;
 
-void updateColor(int gender) {
-  if (gender == 1) {
+void updateColor(GenderType selectedGender) {
+  if (selectedGender == GenderType.male) {
     if (maleCardColor == inactiveCardColor) {
       maleCardColor = activeCardColor;
       femaleCardColor = inactiveCardColor;
     } else {
       maleCardColor = inactiveCardColor;
     }
-  } else if (gender == 2) {
+  } else if (selectedGender == GenderType.female) {
     if (femaleCardColor == inactiveCardColor) {
       femaleCardColor = activeCardColor;
       maleCardColor = inactiveCardColor;
@@ -54,7 +56,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(1);
+                        updateColor(GenderType.male);
                       });
                     },
                     child: roundedCard(
@@ -70,7 +72,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(2);
+                        updateColor(GenderType.female);
                       });
                     },
                     child: roundedCard(
