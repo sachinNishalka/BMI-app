@@ -16,23 +16,24 @@ enum GenderType { male, female, other }
 Color maleCardColor = inactiveCardColor;
 Color femaleCardColor = inactiveCardColor;
 
-void updateColor(GenderType selectedGender) {
-  if (selectedGender == GenderType.male) {
-    if (maleCardColor == inactiveCardColor) {
-      maleCardColor = activeCardColor;
-      femaleCardColor = inactiveCardColor;
-    } else {
-      maleCardColor = inactiveCardColor;
-    }
-  } else if (selectedGender == GenderType.female) {
-    if (femaleCardColor == inactiveCardColor) {
-      femaleCardColor = activeCardColor;
-      maleCardColor = inactiveCardColor;
-    } else {
-      femaleCardColor = inactiveCardColor;
-    }
-  }
-}
+//
+// void updateColor(GenderType selectedGender) {
+//   if (selectedGender == GenderType.male) {
+//     if (maleCardColor == inactiveCardColor) {
+//       maleCardColor = activeCardColor;
+//       femaleCardColor = inactiveCardColor;
+//     } else {
+//       maleCardColor = inactiveCardColor;
+//     }
+//   } else if (selectedGender == GenderType.female) {
+//     if (femaleCardColor == inactiveCardColor) {
+//       femaleCardColor = activeCardColor;
+//       maleCardColor = inactiveCardColor;
+//     } else {
+//       femaleCardColor = inactiveCardColor;
+//     }
+//   }
+// }
 
 class InputPage extends StatefulWidget {
   @override
@@ -56,7 +57,8 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(GenderType.male);
+                        maleCardColor = maleCardColor==inactiveCardColor?activeCardColor:inactiveCardColor;
+                        femaleCardColor = inactiveCardColor;
                       });
                     },
                     child: roundedCard(
@@ -72,7 +74,8 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(GenderType.female);
+                        femaleCardColor = femaleCardColor == inactiveCardColor?activeCardColor:inactiveCardColor;
+                        maleCardColor = inactiveCardColor;
                       });
                     },
                     child: roundedCard(
