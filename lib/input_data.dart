@@ -13,8 +13,8 @@ const bottomCardColor = Color(0xFFEB1555);
 
 enum GenderType { male, female, other }
 
-Color maleCardColor = inactiveCardColor;
-Color femaleCardColor = inactiveCardColor;
+// Color maleCardColor = inactiveCardColor;
+// Color femaleCardColor = inactiveCardColor;
 
 //
 // void updateColor(GenderType selectedGender) {
@@ -34,6 +34,8 @@ Color femaleCardColor = inactiveCardColor;
 //     }
 //   }
 // }
+
+ GenderType selectedGender = GenderType.male;
 
 class InputPage extends StatefulWidget {
   @override
@@ -57,12 +59,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        maleCardColor = maleCardColor==inactiveCardColor?activeCardColor:inactiveCardColor;
-                        femaleCardColor = inactiveCardColor;
+                        // maleCardColor = maleCardColor==inactiveCardColor?activeCardColor:inactiveCardColor;
+                        // femaleCardColor = inactiveCardColor;
+                        selectedGender = GenderType.male;
                       });
                     },
                     child: roundedCard(
-                      colour: maleCardColor,
+                      colour: selectedGender==GenderType.male?activeCardColor:inactiveCardColor,
                       cardChild: cardContent(
                         cardIcon: FontAwesomeIcons.mars,
                         cardText: "Male",
@@ -74,12 +77,13 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        femaleCardColor = femaleCardColor == inactiveCardColor?activeCardColor:inactiveCardColor;
-                        maleCardColor = inactiveCardColor;
+                        // femaleCardColor = femaleCardColor == inactiveCardColor?activeCardColor:inactiveCardColor;
+                        // maleCardColor = inactiveCardColor;
+                        selectedGender = GenderType.female;
                       });
                     },
                     child: roundedCard(
-                      colour: femaleCardColor,
+                      colour: selectedGender==GenderType.female?activeCardColor:inactiveCardColor,
                       cardChild: cardContent(
                           cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
                     ),
