@@ -6,8 +6,8 @@ import 'constants.dart';
 
 enum GenderType { male, female, other }
 
-// Color maleCardColor = inactiveCardColor;
-// Color femaleCardColor = inactiveCardColor;
+Color maleCardColor = inactiveCardColor;
+Color femaleCardColor = inactiveCardColor;
 
 //
 // void updateColor(GenderType selectedGender) {
