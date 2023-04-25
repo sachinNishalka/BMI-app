@@ -35,6 +35,8 @@ Color femaleCardColor = inactiveCardColor;
 //   }
 // }
 
+GenderType selectedGender = GenderType.male;
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -54,35 +56,33 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: roundedCard(
+                    onPress: () {
                       setState(() {
-                        maleCardColor = maleCardColor==inactiveCardColor?activeCardColor:inactiveCardColor;
-                        femaleCardColor = inactiveCardColor;
+                        selectedGender = GenderType.male;
                       });
                     },
-                    child: roundedCard(
-                      colour: maleCardColor,
-                      cardChild: cardContent(
-                        cardIcon: FontAwesomeIcons.mars,
-                        cardText: "Male",
-                      ),
+                    colour: selectedGender == GenderType.male
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: cardContent(
+                      cardIcon: FontAwesomeIcons.mars,
+                      cardText: "Male",
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: roundedCard(
+                    onPress: () {
                       setState(() {
-                        femaleCardColor = femaleCardColor == inactiveCardColor?activeCardColor:inactiveCardColor;
-                        maleCardColor = inactiveCardColor;
+                        selectedGender = GenderType.female;
                       });
                     },
-                    child: roundedCard(
-                      colour: femaleCardColor,
-                      cardChild: cardContent(
-                          cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
-                    ),
+                    colour: selectedGender == GenderType.female
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: cardContent(
+                        cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
                   ),
                 ),
               ],
@@ -90,6 +90,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: roundedCard(
+              onPress: () {},
               colour: activeCardColor,
               cardChild: Container(),
             ),
@@ -99,12 +100,14 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: roundedCard(
+                    onPress: () {},
                     colour: activeCardColor,
                     cardChild: Container(),
                   ),
                 ),
                 Expanded(
                   child: roundedCard(
+                    onPress: () {},
                     colour: activeCardColor,
                     cardChild: Container(),
                   ),
