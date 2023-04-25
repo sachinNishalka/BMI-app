@@ -2,14 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'cardContent.dart';
 import 'roundedCards.dart';
-
-const double bottomContainerHeight = 80;
-
-const activeCardColor = Color(0xFF1D1E33);
-
-const inactiveCardColor = Color(0xFF111328);
-
-const bottomCardColor = Color(0xFFEB1555);
+import 'constants.dart';
 
 enum GenderType { male, female, other }
 
@@ -63,8 +56,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == GenderType.male
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? KActiveCardColor
+                        : KInactiveCardColor,
                     cardChild: cardContent(
                       cardIcon: FontAwesomeIcons.mars,
                       cardText: "Male",
@@ -79,8 +72,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == GenderType.female
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? KActiveCardColor
+                        : KInactiveCardColor,
                     cardChild: cardContent(
                         cardIcon: FontAwesomeIcons.venus, cardText: "FEMALE"),
                   ),
@@ -91,7 +84,7 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: roundedCard(
               onPress: () {},
-              colour: activeCardColor,
+              colour: KActiveCardColor,
               cardChild: Container(),
             ),
           ),
@@ -101,14 +94,14 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: roundedCard(
                     onPress: () {},
-                    colour: activeCardColor,
+                    colour: KActiveCardColor,
                     cardChild: Container(),
                   ),
                 ),
                 Expanded(
                   child: roundedCard(
                     onPress: () {},
-                    colour: activeCardColor,
+                    colour: KActiveCardColor,
                     cardChild: Container(),
                   ),
                 ),
@@ -117,8 +110,8 @@ class _InputPageState extends State<InputPage> {
           ),
           Container(
             width: double.infinity,
-            color: bottomCardColor,
-            height: bottomContainerHeight,
+            color: KBottomCardColor,
+            height: KBottomContainerHeight,
             margin: EdgeInsets.only(top: 10.0),
           )
         ],
