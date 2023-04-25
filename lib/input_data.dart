@@ -6,8 +6,8 @@ import 'constants.dart';
 
 enum GenderType { male, female, other }
 
-Color maleCardColor = inactiveCardColor;
-Color femaleCardColor = inactiveCardColor;
+Color maleCardColor = KInactiveCardColor;
+Color femaleCardColor = KInactiveCardColor;
 
 //
 // void updateColor(GenderType selectedGender) {
@@ -102,8 +102,19 @@ class _InputPageState extends State<InputPage> {
                         "100",
                         style: KSliderlabelStyle,
                       ),
-                      Text("cm", style: KlabelStyle,),
+                      Text(
+                        "cm",
+                        style: KlabelStyle,
+                      ),
                     ],
+                  ),
+                  Slider(
+                    value: 180.0,
+                    onChanged: (double value) {
+                      print(value);
+                    },
+                    min: 120.0,
+                    max: 200.0,
                   )
                 ],
               ),
