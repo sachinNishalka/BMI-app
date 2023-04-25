@@ -44,6 +44,7 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -85,7 +86,27 @@ class _InputPageState extends State<InputPage> {
             child: roundedCard(
               onPress: () {},
               colour: KActiveCardColor,
-              cardChild: Container(),
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Height",
+                    style: KlabelStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        "100",
+                        style: KSliderlabelStyle,
+                      ),
+                      Text("cm", style: KlabelStyle,),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
