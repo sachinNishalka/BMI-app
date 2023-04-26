@@ -158,9 +158,12 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundedButton(prefIcon: FontAwesomeIcons.plus,),
-                            SizedBox(width: 10.0,),
-                            RoundedButton(prefIcon: FontAwesomeIcons.minus,),
+                            // RoundedButton(prefIcon: FontAwesomeIcons.plus,),
+                            // SizedBox(width: 10.0,),
+                            // RoundedButton(prefIcon: FontAwesomeIcons.minus,),
+                            RoundIconButton(icon: FontAwesomeIcons.plus),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(icon: FontAwesomeIcons.minus,),
                           ],
                         )
                       ],
@@ -205,18 +208,38 @@ class _InputPageState extends State<InputPage> {
 //   }
 // }
 
-class RoundedButton extends StatelessWidget {
-  RoundedButton({required IconData prefIcon});
-  late IconData prefIcon;
+// class RoundedButton extends StatelessWidget {
+//   RoundedButton({required IconData prefIcon});
+//   late IconData prefIcon;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return RawMaterialButton(
+//       onPressed: () {},
+//       fillColor: Color(0xFF4C4F5E),
+//       child: Icon(prefIcon, size: 10.0,),
+//       shape: CircleBorder(),
+//       constraints: BoxConstraints.tightFor(height: 40, width: 40),
+//     );
+//   }
+// }
+
+class RoundIconButton extends StatelessWidget {
+   RoundIconButton({required this.icon});
+
+   final IconData icon;
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: () {},
-      fillColor: Color(0xFF4C4F5E),
-      child: Icon(prefIcon, size: 10.0,),
+    return  RawMaterialButton(
+      child: Icon(icon),
+      onPressed: (){},
       shape: CircleBorder(),
-      constraints: BoxConstraints.tightFor(height: 40, width: 40),
+      // padding: EdgeInsets.zero,
+      constraints: BoxConstraints.tightForFinite(height: 56.0 , width: 56.0),
+      elevation: 6.0,
+
+      fillColor: Color(0xFF4C4F5E),
     );
   }
 }
