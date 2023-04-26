@@ -9,6 +9,8 @@ enum GenderType { male, female, other }
 Color maleCardColor = KInactiveCardColor;
 Color femaleCardColor = KInactiveCardColor;
 
+int weight = 60;
+
 //
 // void updateColor(GenderType selectedGender) {
 //   if (selectedGender == GenderType.male) {
@@ -129,7 +131,7 @@ class _InputPageState extends State<InputPage> {
                           height = value.toInt();
                         });
                       },
-                      min: 120.0,
+                      min: 100.0,
                       max: 220.0,
                     ),
                   )
@@ -152,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                           style: KlabelStyle,
                         ),
                         Text(
-                          "100",
+                          weight.toString(),
                           style: KSliderlabelStyle,
                         ),
                         Row(
@@ -161,9 +163,17 @@ class _InputPageState extends State<InputPage> {
                             // RoundedButton(prefIcon: FontAwesomeIcons.plus,),
                             // SizedBox(width: 10.0,),
                             // RoundedButton(prefIcon: FontAwesomeIcons.minus,),
-                            RoundIconButton(icon: FontAwesomeIcons.plus),
+                            RoundIconButton(icon: FontAwesomeIcons.plus, thingToDo: (){
+                              setState(() {
+                                weight++;
+                              });
+                            },),
                             SizedBox(width: 10.0),
-                            RoundIconButton(icon: FontAwesomeIcons.minus,),
+                            RoundIconButton(icon: FontAwesomeIcons.minus,thingToDo: (){
+                              setState(() {
+                                weight--;
+                              });
+                            },),
                           ],
                         )
                       ],
@@ -225,18 +235,19 @@ class _InputPageState extends State<InputPage> {
 // }
 
 class RoundIconButton extends StatelessWidget {
-   RoundIconButton({required this.icon});
+   RoundIconButton({required this.icon, required this.thingToDo});
 
    final IconData icon;
+   final void Function() thingToDo;
 
   @override
   Widget build(BuildContext context) {
     return  RawMaterialButton(
       child: Icon(icon),
-      onPressed: (){},
+      onPressed: thingToDo,
       shape: CircleBorder(),
       // padding: EdgeInsets.zero,
-      constraints: BoxConstraints.tightForFinite(height: 56.0 , width: 56.0),
+      constraints: BoxConstraints.tightFor(height: 56.0 , width: 56.0),
       elevation: 6.0,
 
       fillColor: Color(0xFF4C4F5E),
