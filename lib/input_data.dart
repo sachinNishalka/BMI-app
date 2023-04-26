@@ -36,6 +36,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  int height = 120;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +100,7 @@ class _InputPageState extends State<InputPage> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
-                        "100",
+                        height.toString(),
                         style: KSliderlabelStyle,
                       ),
                       Text(
@@ -109,12 +110,16 @@ class _InputPageState extends State<InputPage> {
                     ],
                   ),
                   Slider(
-                    value: 180.0,
+                    activeColor: Color(0xFFEB1555),
+                    inactiveColor: Color(0xFF8D8E98),
+                    value: height.toDouble(),
                     onChanged: (double value) {
-                      print(value);
+                      setState(() {
+                        height = value.toInt();
+                      });
                     },
                     min: 120.0,
-                    max: 200.0,
+                    max: 220.0,
                   )
                 ],
               ),
