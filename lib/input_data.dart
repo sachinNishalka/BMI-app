@@ -91,7 +91,7 @@ class _InputPageState extends State<InputPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Height",
+                    "HEIGHT",
                     style: KlabelStyle,
                   ),
                   Row(
@@ -115,8 +115,10 @@ class _InputPageState extends State<InputPage> {
                       inactiveTickMarkColor: Color(0xFF8D8E98),
                       thumbColor: Color(0xFFEB1555),
                       overlayColor: Color(0x29EB1555),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
                     ),
                     child: Slider(
                       // activeColor: Color(0xFFEB1555),
@@ -142,7 +144,12 @@ class _InputPageState extends State<InputPage> {
                   child: roundedCard(
                     onPress: () {},
                     colour: KActiveCardColor,
-                    cardChild: Container(),
+                    cardChild: Column(
+                      children: [
+                        Text("WEIGHT", style: KlabelStyle,),
+                        RoundedButtons(),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -163,6 +170,21 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+//creating a custom button
+class RoundedButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: () {},
+      shape: CircleBorder(),
+      color: Color(0xFF4C4F5E),
+      height: 60.0,
+      child: Icon(Fontawesome),
+
     );
   }
 }
