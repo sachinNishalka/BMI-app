@@ -145,9 +145,24 @@ class _InputPageState extends State<InputPage> {
                     onPress: () {},
                     colour: KActiveCardColor,
                     cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("WEIGHT", style: KlabelStyle,),
-                        RoundedButtons(),
+                        Text(
+                          "WEIGHT",
+                          style: KlabelStyle,
+                        ),
+                        Text(
+                          "100",
+                          style: KSliderlabelStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundedButton(prefIcon: FontAwesomeIcons.plus,),
+                            SizedBox(width: 10.0,),
+                            RoundedButton(prefIcon: FontAwesomeIcons.minus,),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -174,17 +189,34 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-//creating a custom button
-class RoundedButtons extends StatelessWidget {
+// //creating a custom button
+// class RoundedButtons extends StatelessWidget {
+//   RoundedButtons({required IconData prefIcon});
+//   late IconData prefIcon;
+//   @override
+//   Widget build(BuildContext context) {
+//     return RawMaterialButton(
+//       onPressed: () {},
+//       shape: CircleBorder(),
+//       child: Icon(prefIcon),
+//       fillColor: Color(0xFF4C4F5E),
+//
+//     );
+//   }
+// }
+
+class RoundedButton extends StatelessWidget {
+  RoundedButton({required IconData prefIcon});
+  late IconData prefIcon;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
+    return RawMaterialButton(
       onPressed: () {},
+      fillColor: Color(0xFF4C4F5E),
+      child: Icon(prefIcon, size: 10.0,),
       shape: CircleBorder(),
-      color: Color(0xFF4C4F5E),
-      height: 60.0,
-      child: Icon(Fontawesome),
-
+      constraints: BoxConstraints.tightFor(height: 40, width: 40),
     );
   }
 }
