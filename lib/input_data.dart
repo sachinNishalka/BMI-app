@@ -45,7 +45,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: AppTitle,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -165,17 +165,23 @@ class _InputPageState extends State<InputPage> {
                             // RoundedButton(prefIcon: FontAwesomeIcons.plus,),
                             // SizedBox(width: 10.0,),
                             // RoundedButton(prefIcon: FontAwesomeIcons.minus,),
-                            RoundIconButton(icon: FontAwesomeIcons.plus, thingToDo: (){
-                              setState(() {
-                                weight++;
-                              });
-                            },),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              thingToDo: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
                             SizedBox(width: 10.0),
-                            RoundIconButton(icon: FontAwesomeIcons.minus,thingToDo: (){
-                              setState(() {
-                                weight--;
-                              });
-                            },),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              thingToDo: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
                           ],
                         )
                       ],
@@ -189,22 +195,34 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("AGE", style: KlabelStyle,),
-                        Text(age.toString(), style: KSliderlabelStyle,),
+                        Text(
+                          "AGE",
+                          style: KlabelStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: KSliderlabelStyle,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(icon: FontAwesomeIcons.plus, thingToDo: (){
-                              setState(() {
-                                age++;
-                              });
-                            },),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              thingToDo: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
                             SizedBox(width: 10.0),
-                            RoundIconButton(icon: FontAwesomeIcons.minus,thingToDo: (){
-                              setState(() {
-                                age--;
-                              });
-                            },),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              thingToDo: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
                           ],
                         ),
                       ],
@@ -214,11 +232,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            color: KBottomCardColor,
-            height: KBottomContainerHeight,
-            margin: EdgeInsets.only(top: 10.0),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/reslutsPage');
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: KButtonLabelStyle,
+                ),
+              ),
+              width: double.infinity,
+              color: KBottomCardColor,
+              height: KBottomContainerHeight,
+              margin: EdgeInsets.only(top: 10.0),
+            ),
           )
         ],
       ),
@@ -259,19 +288,19 @@ class _InputPageState extends State<InputPage> {
 // }
 
 class RoundIconButton extends StatelessWidget {
-   RoundIconButton({required this.icon, required this.thingToDo});
+  RoundIconButton({required this.icon, required this.thingToDo});
 
-   final IconData icon;
-   final void Function() thingToDo;
+  final IconData icon;
+  final void Function() thingToDo;
 
   @override
   Widget build(BuildContext context) {
-    return  RawMaterialButton(
+    return RawMaterialButton(
       child: Icon(icon),
       onPressed: thingToDo,
       shape: CircleBorder(),
       // padding: EdgeInsets.zero,
-      constraints: BoxConstraints.tightFor(height: 56.0 , width: 56.0),
+      constraints: BoxConstraints.tightFor(height: 56.0, width: 56.0),
       elevation: 6.0,
 
       fillColor: Color(0xFF4C4F5E),
