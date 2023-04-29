@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'cardContent.dart';
 import 'roundedCards.dart';
 import 'constants.dart';
+import 'package:bmiapp/BottomButton.dart';
 
 enum GenderType { male, female, other }
 
@@ -232,23 +233,9 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/reslutsPage');
-            },
-            child: Container(
-              child: Center(
-                child: Text(
-                  "CALCULATE",
-                  style: KButtonLabelStyle,
-                ),
-              ),
-              width: double.infinity,
-              color: KBottomCardColor,
-              height: KBottomContainerHeight,
-              margin: EdgeInsets.only(top: 10.0),
-            ),
-          )
+          BottomButton(textOnButton: "Calculate", theButtonFunction: (){
+            Navigator.pushNamed(context, '/reslutsPage');
+          },)
         ],
       ),
     );
