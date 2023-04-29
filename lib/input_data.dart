@@ -10,6 +10,7 @@ Color maleCardColor = KInactiveCardColor;
 Color femaleCardColor = KInactiveCardColor;
 
 int weight = 60;
+int age = 23;
 
 //
 // void updateColor(GenderType selectedGender) {
@@ -39,6 +40,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   int height = 120;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,7 +186,29 @@ class _InputPageState extends State<InputPage> {
                   child: roundedCard(
                     onPress: () {},
                     colour: KActiveCardColor,
-                    cardChild: Container(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("AGE", style: KlabelStyle,),
+                        Text(age.toString(), style: KSliderlabelStyle,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(icon: FontAwesomeIcons.plus, thingToDo: (){
+                              setState(() {
+                                age++;
+                              });
+                            },),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(icon: FontAwesomeIcons.minus,thingToDo: (){
+                              setState(() {
+                                age--;
+                              });
+                            },),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
