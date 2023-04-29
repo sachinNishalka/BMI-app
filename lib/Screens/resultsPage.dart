@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
-import 'roundedCards.dart';
-import 'package:bmiapp/BottomButton.dart';
+import '../constants.dart';
+import '../Components//roundedCards.dart';
+import 'package:bmiapp/Components/BottomButton.dart';
 
 
 
@@ -42,7 +42,7 @@ class ResultsPage extends StatelessWidget {
           ),
           BottomButton(textOnButton: "RE-CALCULATE", theButtonFunction: (){
             Navigator.pop(context);
-          })
+          }),
 
           //this is my code before i watch the mentor doing it
           // Text(

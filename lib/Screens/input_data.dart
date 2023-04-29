@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'cardContent.dart';
-import 'roundedCards.dart';
-import 'constants.dart';
-import 'package:bmiapp/BottomButton.dart';
+import '../Components//cardContent.dart';
+import '../Components/roundedCards.dart';
+import '../constants.dart';
+import 'package:bmiapp/Components/BottomButton.dart';
 
 enum GenderType { male, female, other }
 
