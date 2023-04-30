@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../Components//roundedCards.dart';
 import 'package:bmiapp/Components/BottomButton.dart';
+import 'package:bmiapp/BMI_Calculator.dart';
+
 
 
 
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+
+  ResultsPage({required this.mainText, required this.BMI, required this.definition});
+
+  final String mainText;
+  final String BMI;
+  final String definition;
 
   @override
   Widget build(BuildContext context) {
