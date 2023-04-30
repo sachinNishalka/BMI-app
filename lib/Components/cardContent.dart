@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'package:bmiapp/constants.dart';
 
 class cardContent extends StatelessWidget {
   cardContent({required this.cardIcon, required this.cardText});
