@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../Components//roundedCards.dart';
 import 'package:bmiapp/Components/BottomButton.dart';
-import 'package:bmiapp/BMI_Calculator.dart';
-
-
-
-
 
 class ResultsPage extends StatelessWidget {
-
-  ResultsPage({required this.mainText, required this.BMI, required this.definition});
+  ResultsPage(
+      {required this.mainText, required this.BMI, required this.definition});
 
   final String mainText;
   final String BMI;
@@ -28,7 +23,10 @@ class ResultsPage extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsets.all(15.0),
-            child: Text("Your Result", style: KyourResultLabel,),
+            child: Text(
+              "Your Result",
+              style: KyourResultLabel,
+            ),
             alignment: Alignment.bottomLeft,
           ),
           Expanded(
@@ -38,18 +36,29 @@ class ResultsPage extends StatelessWidget {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("Normal", style: KstatustLabel,),
-                  Text("18.3", style: KmainLabel,),
-                  Text("Your BMI result is low, You should eat more!", style: KfinalDescription, textAlign: TextAlign.center,),
+                  Text(
+                    mainText,
+                    style: KstatustLabel,
+                  ),
+                  Text(
+                    BMI,
+                    style: KmainLabel,
+                  ),
+                  Text(
+                    definition,
+                    style: KfinalDescription,
+                    textAlign: TextAlign.center,
+                  ),
                 ],
-
               ),
               onPress: () {},
             ),
           ),
-          BottomButton(textOnButton: "RE-CALCULATE", theButtonFunction: (){
-            Navigator.pop(context);
-          }),
+          BottomButton(
+              textOnButton: "RE-CALCULATE",
+              theButtonFunction: () {
+                Navigator.pop(context);
+              }),
 
           //this is my code before i watch the mentor doing it
           // Text(

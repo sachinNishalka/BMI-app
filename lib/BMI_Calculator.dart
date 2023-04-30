@@ -5,7 +5,7 @@ class BMI_Calculator {
   final double height;
   final double weight;
 
-  late double _bmi;
+   double _bmi = 0.0;
 
   String calculateBMI() {
     _bmi = weight / pow(height / 100, 2);

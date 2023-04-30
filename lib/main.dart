@@ -28,13 +28,13 @@ class BMICalculator extends StatelessWidget {
           primaryColorDark: PrimeColor,
           appBarTheme: AppBarTheme(backgroundColor: PrimeColor.shade900),
           scaffoldBackgroundColor: PrimeColor.shade700),
-      // home: InputPage(),
-      initialRoute: '/inputPage',
-      routes: {
-        // '/' :(context) => BMICalculator(),
-        '/inputPage' : (context) => InputPage(),
-        '/reslutsPage': (context) => ResultsPage(),
-      },
+      home: InputPage(),
+      // initialRoute: '/inputPage',
+      // routes: {
+      //   // '/' :(context) => BMICalculator(),
+      //   '/inputPage' : (context) => InputPage(),
+      //   '/reslutsPage': (context) => ResultsPage(),
+      // },
     );
   }
 }
